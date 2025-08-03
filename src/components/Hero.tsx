@@ -1,10 +1,16 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/textGenratorEffect";
 import Ripple from "./ui/rippleBG";
 
 const Hero = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
       <Ripple />
@@ -38,10 +44,12 @@ const Hero = () => {
               <span className="text-blue-400">scalability</span>, and seamless
               interactions.
             </h1>
-            <TextGenerateEffect
-              className="text-xl text-center w-full lg:max-w-6xl"
-              words="I turn ideas into functional, scalable web applications. With a focus on modern frameworks like Next.js and Tailwind CSS, I build performant, user-centric solutions that bring real value to users and businesses alike."
-            />
+            {isMounted && (
+              <TextGenerateEffect
+                className="text-xl text-center w-full lg:max-w-6xl"
+                words="I turn ideas into functional, scalable web applications. With a focus on modern frameworks like Next.js and Tailwind CSS, I build performant, user-centric solutions that bring real value to users and businesses alike."
+              />
+            )}
           </div>
           <div className="flex justify-center relative my-20">
             <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">

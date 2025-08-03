@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -15,20 +15,28 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
+  const [isMounted, setIsMounted] = useState(false);
   const wordsArray = words.split(" ");
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isMounted && scope.current) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+          delay: stagger(0.2),
+        }
+      );
+    }
+  }, [isMounted, scope.current, animate, filter, duration]);
 
   const renderWords = () => {
     return (
@@ -39,7 +47,8 @@ export const TextGenerateEffect = ({
               key={word + idx}
               className="text-copy-light"
               style={{
-                filter: filter ? "blur(10px)" : "none",
+                filter: filter && !isMounted ? "blur(10px)" : "none",
+                opacity: isMounted ? 1 : 0,
               }}
             >
               {word}{" "}

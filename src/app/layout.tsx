@@ -32,6 +32,7 @@ export default function RootLayout({
       className="scrollbar-thumb-[var(--scrollbar-thumb)] scrollbar-thumb-rounded-xl scrollbar-track-transparent"
     >
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen overflow-hidden`}
       >
         <ThemeProvider
