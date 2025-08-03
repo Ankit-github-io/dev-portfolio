@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nav-height: 64px;
+}
+@layer base {
+  :root {
+    --background-a0: rgb(255, 255, 255); /* Background color */
+    --background-a20: rgb(245, 245, 245);
+    --background-a40: rgb(235, 235, 235);
+    --background-a60: #565656;
+    --background-a80: #707070;
+    --background-a100: #8a8a8a;
+    --foreground: rgb(240, 240, 240, 0.923); /* Foreground color */
+    --overlay-background: rgba(255, 255, 255, 0.32);
+
+    --primary: #070707ec;
+    --primary-copy: rgba(224, 231, 255, 1);
+    --primary-light: #00000091;
+    --primary-lightest: rgb(30, 30, 31);
+
+    --secondary: rgba(107, 33, 168, 1); /* Secondary color */
+    --secondary-copy: rgba(224, 231, 255, 0.978);
+    --secondary-dark: rgba(59, 7, 100, 1); /* Secondary dark color */
+    --secondary-light: rgba(168, 85, 246, 1); /* Secondary light color */
+
+    --muted: #f0f0f0eb;
+    --muted-copy: hsl(262, 0%, 43%);
+
+    --copy: #1a1a1a; /* Copy color (dark) */
+    --copy-light: #525151e0;
+    --copy-lighter: rgba(163, 163, 163, 0.836); /* Even lighter copy color */
+
+    --border: #2b2b2b7c; /* Border color */
+    --border-hover: rgba(0, 0, 0, 0.5);
+    --invert-filter: 1;
+    --scrollbar-thumb: rgba(163, 163, 163, 0.649);
+    --gradiant: linear-gradient(to bottom, #000000, #00000063);
+
+    --success: rgba(70, 235, 70, 1); /* Success color (green) */
+    --success-content: rgba(5, 45, 5, 1); /* Success content color */
+    --warning: rgba(235, 235, 70, 1); /* Warning color (yellow) */
+    --warning-content: rgba(45, 45, 5, 1); /* Warning content color */
+    --error: rgba(235, 70, 70, 1); /* Error color (red) */
+    --error-content: rgba(255, 255, 255, 1); /* Error content color */
+
+    --chart-1: rgba(99, 102, 241, 1); /* Chart color 1 */
+    --chart-2: rgba(16, 185, 129, 1); /* Chart color 2 */
+    --chart-3: rgba(251, 191, 36, 1); /* Chart color 3 */
+    --chart-4: rgba(244, 63, 94, 1); /* Chart color 4 */
+    --chart-5: rgba(59, 130, 246, 1); /* Chart color 5 */
+  }
+
+  .dark {
+    --background-a0: #101010f5;
+    --background-a20: #171718;
+    --background-a40: #1f1f20;
+    --background-a60: #3d3d3d;
+    --background-a80: #565656;
+    --background-a100: #707070;
+    --foreground: rgba(4, 4, 4, 0.43);
+    --overlay-background: rgba(16, 16, 16, 0.308);
+
+    --primary: #64bbcd;
+    --primary-copy: #000;
+    --primary-light: rgba(99, 101, 248, 0.957); /* Primary light color */
+    --primary-lightest: rgba(41, 16, 101, 1); /* Primary dark color */
+
+    --secondary: rgba(107, 33, 168, 1);
+    --secondary-copy: #ebfcff;
+    --secondary-dark: rgba(59, 7, 100, 1); /* Secondary dark color */
+    --secondary-light: rgba(168, 85, 246, 1); /* Secondary light color */
+
+    --muted: #222a2a;
+    --muted-copy: hsl(262, 0%, 43%);
+
+    --copy: rgba(229, 231, 235, 1);
+    --copy-light: rgb(166, 166, 170);
+    --copy-lighter: rgb(121, 121, 124);
+
+    --border: #9494b686;
+    --border-hover: rgba(168, 177, 255, 0.524);
+    --scrollbar-thumb: rgba(113, 113, 122, 0.583);
+    --invert-filter: 0;
+    --gradiant: linear-gradient(to bottom, #ffffff, #ffffff63);
+
+    --success: rgba(74, 222, 128, 1);
+    --success-content: rgba(0, 0, 0, 1);
+    --warning: rgba(253, 224, 71, 1);
+    --warning-content: rgba(37, 37, 3, 1);
+    --error: rgba(248, 113, 113, 1);
+    --error-content: rgba(255, 255, 255, 1);
+
+    --chart-1: rgba(129, 140, 248, 1);
+    --chart-2: rgba(52, 211, 153, 1);
+    --chart-3: rgba(250, 203, 21, 1);
+    --chart-4: rgba(248, 113, 113, 1);
+    --chart-5: rgba(59, 130, 246, 1);
+  }
+}
+
+.radialGraddiant {
+  background: url(/public/noice.png),
+    radial-gradient(
+      circle at right center,
+      #4b296980,
+      #563277 25%,
+      #4a378c 40%,
+      #4066a8 65%,
+      #32517380
+    );
+  -webkit-mask-image: radial-gradient(
+    ellipse 150% 30% at center center,
+    #000 20%,
+    #00000080 50%,
+    #0000
+  );
+  mask-image: radial-gradient(
+    ellipse 150% 30% at center center,
+    #000 20%,
+    #00000080 50%,
+    #0000
+  );
+}
