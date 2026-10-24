@@ -19,17 +19,20 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
   const { results, search } = useSearch();
   const router = useRouter();
 
-  const itemRefs = useRef<HTMLLIElement[]>([]); // Store references for all list items
+  const itemRefs = useRef<HTMLLIElement[]>([]);
 
   useEffect(() => {
     if (query) {
-      const grouped: SearchableDataType = results.reduce((acc, item) => {
+      const typedResults = results as unknown as SearchableItemType[];
+
+      const grouped: SearchableDataType = typedResults.reduce((acc, item) => {
         const category =
           item.type.charAt(0).toUpperCase() + item.type.slice(1) || "Others";
         if (!acc[category]) acc[category] = [];
         acc[category].push(item);
         return acc;
       }, {} as SearchableDataType);
+
       const flatList = Object.values(grouped).flat();
 
       setGroupedResults(grouped);
@@ -49,22 +52,16 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
     if (!flatResults.length) return;
 
     if (e.key === "ArrowDown") {
-      // Move down (circular navigation)
       const newIndex =
         selectedIndex === null ? 0 : (selectedIndex + 1) % flatResults.length;
       setSelectedIndex(newIndex);
-
-      // Scroll to the selected item
       scrollToSelected(newIndex);
     } else if (e.key === "ArrowUp") {
-      // Move up (circular navigation)
       const newIndex =
         selectedIndex === null
           ? flatResults.length - 1
           : (selectedIndex - 1 + flatResults.length) % flatResults.length;
       setSelectedIndex(newIndex);
-
-      // Scroll to the selected item
       scrollToSelected(newIndex);
     } else if (e.key === "Enter" && selectedIndex !== null) {
       handleSuggestionClick(flatResults[selectedIndex].link);
@@ -94,7 +91,7 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
       <div
         onKeyDown={handleKeyDown}
         tabIndex={0}
-        className="bg-surface-20 max-w-md w-[448px] rounded-xl ring-1 ring-borderColor"
+        className="bg-surface-20 max-w-md w-[448px] rounded-xl ring-1 ring-borderColor focus:outline-none"
       >
         <div className="p-2">
           <VanishInput
@@ -137,12 +134,12 @@ const SearchModal: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
                             : "bg-surface-40 text-copy-light"
                         } rounded-md p-1 px-2 cursor-pointer`}
                       >
-                        <a href={item.link} className="result-link">
+                        <div className="result-link">
                           <p className="text-base truncate">
                             {item.description}
                           </p>
                           <p className="text-sm">{item.title}</p>
-                        </a>
+                        </div>
                       </li>
                     );
                   })}

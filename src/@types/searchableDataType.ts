@@ -22,5 +22,5 @@ export type SearchableItemType = {
 };
 
 export type SearchableDataType = {
-  [key: string]: searchableitemType[];
+  [key: string]: SearchableItemType[];
 };

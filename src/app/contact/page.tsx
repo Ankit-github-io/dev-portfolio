@@ -13,19 +13,19 @@ export default function ContactPage() {
     {
       icon: <IconMail className="w-6 h-6" />,
       title: "Email",
-      value: "ankit.maurya@gmail.com",
-      link: "mailto:ankit.maurya@gmail.com"
+      value: "ankit.murae@gmail.com",
+      link: "mailto:ankit.murae@gmail.com"
     },
     {
       icon: <IconPhone className="w-6 h-6" />,
       title: "Phone",
-      value: "+91 98765 43210",
-      link: "tel:+919876543210"
+      value: "+91 73484 16096",
+      link: "tel:+91 7348416096"
     },
     {
       icon: <IconMapPin className="w-6 h-6" />,
       title: "Location",
-      value: "Mumbai, India",
+      value: "Noida, India",
       link: "#"
     }
   ];
@@ -34,13 +34,13 @@ export default function ContactPage() {
     {
       icon: <IconBrandGithub className="w-6 h-6" />,
       name: "GitHub",
-      url: "https://github.com/ankitmaurya",
+      url: "https://github.com/Ankit-github-io",
       color: "hover:text-gray-800"
     },
     {
       icon: <IconBrandLinkedin className="w-6 h-6" />,
       name: "LinkedIn",
-      url: "https://linkedin.com/in/ankitmaurya",
+      url: "https://www.linkedin.com/in/mrankitmurae/",
       color: "hover:text-blue-600"
     },
     {
@@ -66,8 +66,8 @@ export default function ContactPage() {
               Get In <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Touch</span>
             </h1>
             <p className="text-xl text-copy-light max-w-3xl mx-auto">
-              I'm always interested in new opportunities and exciting projects. 
-              Let's discuss how we can work together to bring your ideas to life.
+              I&apos;m always interested in new opportunities and exciting projects. 
+              Let&apos;s discuss how we can work together to bring your ideas to life.
             </p>
           </motion.div>
         </div>
@@ -88,7 +88,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-copy mb-4">Send a Message</h2>
                 <p className="text-copy-light">
-                  Fill out the form below and I'll get back to you as soon as possible.
+                  Fill out the form below and I&apos;ll get back to you as soon as possible.
                 </p>
               </div>
 
@@ -243,7 +243,7 @@ export default function ContactPage() {
               >
                 <h3 className="text-xl font-bold mb-2">Current Availability</h3>
                 <p className="text-white/90 mb-4">
-                  I'm currently available for new projects and opportunities.
+                  I&apos;m currently available for new projects and opportunities.
                 </p>
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>

@@ -296,8 +296,8 @@ export default function WorkPage() {
               Have a Project in Mind?
             </h2>
             <p className="text-copy-light mb-8 max-w-2xl mx-auto">
-              I'm always excited to work on new and challenging projects. 
-              Let's discuss how we can bring your ideas to life.
+              I&apos;m always excited to work on new and challenging projects. 
+              Let&apos;s discuss how we can bring your ideas to life.
             </p>
             <a
               href="/contact"

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { cn } from "@/utils/cn"; // Agar aapke paas '@/lib/utils' hai toh wahan se bhi import kar sakte hain
 
 /**
  * TextGenerateEffect Component
@@ -49,12 +49,12 @@ export const TextGenerateEffect = ({
           filter: filter ? "blur(0px)" : "none",
         },
         {
-          duration: duration || 1,
+          duration: duration,
           delay: stagger(0.2),
         }
       );
     }
-  }, [isMounted, scope.current, animate, filter, duration]);
+  }, [isMounted, animate, filter, duration, scope]); // scope.current ki jagah stable 'scope' object use kiya gaya hai
 
   /**
    * Render individual words with animation
@@ -66,14 +66,14 @@ export const TextGenerateEffect = ({
         {wordsArray.map((word, idx) => (
           <motion.span
             key={`${word}-${idx}`}
-            className="text-copy-light"
+            className="text-copy-light inline-block mr-1"
             style={{
               // Start with blur effect, clear after animation
               filter: filter ? "blur(10px)" : "none",
-              opacity: 1, // Always visible, animation handles the effect
+              opacity: 0, // Shuru mein opacity 0 rakhein taaki fade-in smooth lage
             }}
           >
-            {word}{" "}
+            {word}
           </motion.span>
         ))}
       </motion.div>

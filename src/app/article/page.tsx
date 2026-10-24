@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { IconCalendar, IconClock, IconTag } from "@tabler/icons-react";
+import { IconCalendar, IconClock } from "@tabler/icons-react";
 
 /**
  * Article Page Component

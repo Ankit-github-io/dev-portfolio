@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "@/app/globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -26,12 +26,6 @@ export const metadata: Metadata = {
   creator: "Ankit Maurya",
 };
 
-/**
- * Root Layout Component
- * 
- * Main layout wrapper for the entire application
- * Handles theme provider, fonts, and global structure
- */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,10 +48,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Main header navigation */}
-          <Header />
-          
-          {/* Main content area */}
+          <Header />          
           <main className="h-full overflow-y-scroll">
             {children}
           </main>

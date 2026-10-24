@@ -16,27 +16,15 @@ export default function AboutPage() {
     { name: "Node.js", level: 80 },
     { name: "MongoDB", level: 75 },
     { name: "PostgreSQL", level: 70 },
-    { name: "Docker", level: 65 },
+    { name: "Docker", level: 45 },
   ];
 
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "TechCorp Solutions",
-      period: "2022 - Present",
+      title: "Jr Software Developer",
+      company: "CSW Solutions PVT Ltd",
+      period: "2023 - 2024",
       description: "Leading frontend development for enterprise applications using Next.js and React."
-    },
-    {
-      title: "Full Stack Developer",
-      company: "InnovateLabs",
-      period: "2020 - 2022",
-      description: "Developed scalable web applications with modern technologies and best practices."
-    },
-    {
-      title: "Junior Developer",
-      company: "StartupHub",
-      period: "2019 - 2020",
-      description: "Started career with focus on React and modern web development practices."
     }
   ];
 
@@ -70,7 +58,7 @@ export default function AboutPage() {
             <div>
               <h2 className="text-2xl font-bold text-copy mb-6">Background</h2>
               <p className="text-copy-light leading-relaxed mb-4">
-                I'm a dedicated software developer with over 4 years of experience in building 
+                I&apos;m a dedicated software developer with over 4 years of experience in building 
                 modern web applications. My journey started with a passion for creating 
                 user-friendly interfaces and has evolved into expertise in full-stack development.
               </p>
@@ -80,7 +68,7 @@ export default function AboutPage() {
                 excellence with creative problem-solving.
               </p>
               <p className="text-copy-light leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing 
+                When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing 
                 to open-source projects, or sharing knowledge with the developer community.
               </p>
             </div>
@@ -205,11 +193,11 @@ export default function AboutPage() {
             transition={{ duration: 0.6, delay: 1 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-copy mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <p className="text-copy-light mb-8 max-w-2xl mx-auto">
-              I'm always interested in new opportunities and exciting projects. 
-              Let's discuss how we can bring your ideas to life.
+              I&apos;m always interested in new opportunities and exciting projects. 
+              Let&apos;s discuss how we can bring your ideas to life.
             </p>
             <a
               href="/contact"

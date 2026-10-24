@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { IconCode, IconPalette, IconRocket, IconUsers, IconStar, IconQuote } from "@tabler/icons-react";
+import { IconCode, IconPalette, IconRocket, IconStar, IconQuote } from "@tabler/icons-react";
 
 /**
  * HomeContent Component
@@ -77,7 +77,7 @@ export default function HomeContent() {
               About <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Me</span>
             </h2>
             <p className="text-xl text-copy-light max-w-3xl mx-auto">
-              I'm a passionate software developer with expertise in modern web technologies. 
+              I&apos;m a passionate software developer with expertise in modern web technologies. 
               I create exceptional digital experiences that combine innovation with functionality.
             </p>
           </motion.div>
@@ -91,13 +91,13 @@ export default function HomeContent() {
             >
               <h3 className="text-2xl font-bold text-copy mb-6">My Journey</h3>
               <p className="text-copy-light leading-relaxed mb-4">
-                With over 4 years of experience in web development, I've had the privilege of working 
+                With over 4 years of experience in web development, I&apos;ve had the privilege of working 
                 on diverse projects that have shaped my expertise in React, Next.js, and TypeScript.
               </p>
               <p className="text-copy-light leading-relaxed mb-6">
                 I believe in creating solutions that not only meet technical requirements but also 
                 deliver exceptional user experiences. Every project is an opportunity to innovate 
-                and push the boundaries of what's possible on the web.
+                and push the boundaries of what&apos;s possible on the web.
               </p>
               <a
                 href="/about"
@@ -195,7 +195,7 @@ export default function HomeContent() {
               Client <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Testimonials</span>
             </h2>
             <p className="text-xl text-copy-light max-w-3xl mx-auto">
-              Don't just take my word for it. Here's what my clients have to say about working with me.
+              Don&apos;t just take my word for it. Here&apos;s what my clients have to say about working with me.
             </p>
           </motion.div>
 
@@ -212,7 +212,7 @@ export default function HomeContent() {
                 <div className="text-primary mb-4">
                   <IconQuote className="w-8 h-8" />
                 </div>
-                <p className="text-copy-light mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <p className="text-copy-light mb-6 leading-relaxed">&quot;{testimonial.content}&quot;</p>
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-semibold text-copy">{testimonial.name}</h4>
@@ -243,7 +243,7 @@ export default function HomeContent() {
               Ready to Start Your <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Project?</span>
             </h2>
             <p className="text-xl text-copy-light mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can bring your ideas to life. I'm here to help you create 
+              Let&apos;s discuss how we can bring your ideas to life. I&apos;m here to help you create 
               something amazing that will make a real impact.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

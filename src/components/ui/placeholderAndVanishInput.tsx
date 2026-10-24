@@ -5,17 +5,27 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SearchIcon } from "lucide-react";
 
+// Pixel data type definition
+interface PixelData {
+  x: number;
+  y: number;
+  r: number;
+  color: string;
+}
+
+interface VanishInputProps {
+  placeholders: string[];
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  autoFocus: boolean;
+}
+
 const VanishInput = ({
   placeholders,
   onChange,
   onSubmit,
   autoFocus,
-}: {
-  placeholders: string[];
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  autoFocus: boolean;
-}) => {
+}: VanishInputProps) => {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -48,7 +58,7 @@ const VanishInput = ({
   }, [placeholders, handleVisibilityChange, startAnimation]);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const newDataRef = useRef<any[]>([]);
+  const newDataRef = useRef<PixelData[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
   const [animating, setAnimating] = useState(false);
@@ -72,7 +82,7 @@ const VanishInput = ({
 
     const imageData = ctx.getImageData(0, 0, 800, 800);
     const pixelData = imageData.data;
-    const newData: any[] = [];
+    const tempRawData: { x: number; y: number; color: number[] }[] = [];
 
     for (let t = 0; t < 800; t++) {
       const i = 4 * t * 800;
@@ -83,7 +93,7 @@ const VanishInput = ({
           pixelData[e + 1] !== 0 &&
           pixelData[e + 2] !== 0
         ) {
-          newData.push({
+          tempRawData.push({
             x: n,
             y: t,
             color: [
@@ -97,7 +107,7 @@ const VanishInput = ({
       }
     }
 
-    newDataRef.current = newData.map(({ x, y, color }) => ({
+    newDataRef.current = tempRawData.map(({ x, y, color }) => ({
       x,
       y,
       r: 1,
@@ -112,7 +122,7 @@ const VanishInput = ({
   const animate = (start: number) => {
     const animateFrame = (pos: number = 0) => {
       requestAnimationFrame(() => {
-        const newArr = [];
+        const newArr: PixelData[] = [];
         for (let i = 0; i < newDataRef.current.length; i++) {
           const current = newDataRef.current[i];
           if (current.x < pos) {
@@ -133,12 +143,12 @@ const VanishInput = ({
         if (ctx) {
           ctx.clearRect(pos, 0, 800, 800);
           newDataRef.current.forEach((t) => {
-            const { x: n, y: i, r: s, color: color } = t;
+            const { x: n, y: i, r: s, color: cColor } = t;
             if (n > pos) {
               ctx.beginPath();
               ctx.rect(n, i, s, s);
-              ctx.fillStyle = color;
-              ctx.strokeStyle = color;
+              ctx.fillStyle = cColor;
+              ctx.strokeStyle = cColor;
               ctx.stroke();
             }
           });
@@ -164,8 +174,8 @@ const VanishInput = ({
     setAnimating(true);
     draw();
 
-    const value = inputRef.current?.value || "";
-    if (value && inputRef.current) {
+    const inputValue = inputRef.current?.value || "";
+    if (inputValue && inputRef.current) {
       const maxX = newDataRef.current.reduce(
         (prev, current) => (current.x > prev ? current.x : prev),
         0
@@ -179,6 +189,7 @@ const VanishInput = ({
     vanishAndSubmit();
     onSubmit(e);
   };
+
   return (
     <form
       className={cn(
@@ -189,7 +200,7 @@ const VanishInput = ({
     >
       <canvas
         className={cn(
-          "absolute pointer-events-none  text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert-[var(--invert-filter)] pr-20",
+          "absolute pointer-events-none text-base transform scale-50 top-[20%] left-2 sm:left-8 origin-top-left filter invert-[var(--invert-filter)] pr-20",
           !animating ? "opacity-0" : "opacity-100"
         )}
         ref={canvasRef}
@@ -236,7 +247,7 @@ const VanishInput = ({
               }}
               className="text-sm sm:text-base text-primary font-normal pl-4 sm:pl-12 text-left w-[calc(100%-2rem)] truncate flex items-center"
             >
-              <SearchIcon size={20} />
+              <SearchIcon size={20} className="mr-2" />
               {placeholders[currentPlaceholder]}
             </motion.p>
           )}

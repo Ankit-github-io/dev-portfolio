@@ -43,6 +43,8 @@ const Hero = () => {
   const mainCircleOpacity = 0.24;
   const numCircles = 10;
 
+  if(!isMounted){return null;}
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Integrated Ripple Background */}

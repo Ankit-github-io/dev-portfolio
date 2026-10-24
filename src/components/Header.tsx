@@ -6,7 +6,7 @@ import Nav from "@/components/ui/Nav";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitch,
+  IconBrandTwitter,
 } from "@tabler/icons-react";
 import SearchButton from "./SearchButton";
 import { motion } from "framer-motion";
@@ -44,7 +44,7 @@ const Header = () => {
     {
       name: "Twitter",
       href: "https://twitter.com/yourprofile",
-      icon: <IconBrandTwitch />,
+      icon: <IconBrandTwitter />,
     },
     {
       name: "LinkedIn",
@@ -57,7 +57,7 @@ const Header = () => {
       icon: <IconBrandGithub />,
     },
   ];
-
+  if (!isMounted) return null;
   return (
     <header className="relative top-0 left-0 w-full z-40 md:fixed xs:fixed transition-colors">
       <div className="transition-colors h-navHeight whitespace-nowrap backdrop-blur bg-overlayBackground border-b border-solid border-borderColor">
